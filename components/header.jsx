@@ -9,8 +9,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { LayoutDashboard, PenBox } from "lucide-react";
+import { checkUser } from "@/lib/checkUser";
 
-const Header = () => {
+const Header = async () => {
+  await checkUser(); // Ensure the user is checked when the header is rendered
+  // This function checks if the user is logged in and creates a new user record if necessary.
   return (
     <div className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b ">
       <nav className="container mx-auto py-4 px-4 flex items-center justify-between">
