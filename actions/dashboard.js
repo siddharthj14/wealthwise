@@ -94,7 +94,7 @@ export async function getUserAccounts() {
       },
     });
     const serializedAccounts = accounts.map(serializeTransaction);
-    return { success: true, data: serializedAccounts };
+    return serializedAccounts;
   } catch (error) {
     throw new Error("Error fetching accounts: " + error.message);
   }

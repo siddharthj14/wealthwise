@@ -1,10 +1,12 @@
+import { getUserAccounts } from "@/actions/dashboard";
 import { CreateAccountDrawer } from "@/components/create-account-drawer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plus } from "lucide-react";
 import React from "react";
+import {AccountCard} from "./_components/account-card";
 
-const DashboardPage = () => {
-  const accounts = []; // Replace with actual data fetching logic
+async function DashboardPage() {
+  const accounts = await getUserAccounts();
   return (
     <div className="px-5">
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -16,9 +18,14 @@ const DashboardPage = () => {
             </CardContent>
           </Card>
         </CreateAccountDrawer>
+
+        {accounts.length > 0 &&
+          accounts?.map((account) => (
+            <AccountCard key={account.id} account={account} />
+          ))}
       </div>
     </div>
   );
-};
+}
 
 export default DashboardPage;
