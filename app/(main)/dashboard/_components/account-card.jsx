@@ -38,6 +38,7 @@ export function AccountCard({ account }) {
   };
 
   useEffect(() => {
+    console.log("Updated account:", updatedAccount);
     if (updatedAccount?.success) {
       toast.success("Default account updated successfully");
     }
