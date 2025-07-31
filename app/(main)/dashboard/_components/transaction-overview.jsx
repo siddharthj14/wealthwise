@@ -76,6 +76,11 @@ export function DashboardOverview({ accounts, transactions }) {
     })
   );
 
+  const totalPieChartData = pieChartData.reduce(
+    (acc, entry) => acc + entry.value,
+    0
+  );
+
   return (
     <div className="grid gap-4 md:grid-cols-2">
       {/* Recent Transactions Card */}
@@ -167,7 +172,11 @@ export function DashboardOverview({ accounts, transactions }) {
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="value"
-                    label={({ name, value }) => `${name}: $${value.toFixed(2)}`}
+                    label={({ name, value }) =>
+                      value / totalPieChartData > 0.1
+                        ? `${name}: $${value.toFixed(2)}`
+                        : ""
+                    }
                   >
                     {pieChartData.map((entry, index) => (
                       <Cell
@@ -179,6 +188,7 @@ export function DashboardOverview({ accounts, transactions }) {
                   <Tooltip
                     formatter={(value) => `$${value.toFixed(2)}`}
                     contentStyle={{
+                      color: " hsl(var(--popover-foreground))",
                       backgroundColor: "hsl(var(--popover))",
                       border: "1px solid hsl(var(--border))",
                       borderRadius: "var(--radius)",

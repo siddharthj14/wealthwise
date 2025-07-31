@@ -1,10 +1,11 @@
 import {
   BarChart3,
   Receipt,
-  PieChart,
   CreditCard,
-  Globe,
   Zap,
+  FileText,
+  ShieldCheck,
+  PieChart,
 } from "lucide-react";
 
 // Stats Data
@@ -31,35 +32,39 @@ export const statsData = [
 export const featuresData = [
   {
     icon: <BarChart3 className="h-8 w-8 text-blue-600" />,
-    title: "Advanced Analytics",
+    title: "Spending Analytics",
     description:
-      "Get detailed insights into your spending patterns with AI-powered analytics",
+      "Visualize and break down your transactions with interactive charts and smart filters.",
   },
   {
     icon: <Receipt className="h-8 w-8 text-blue-600" />,
-    title: "Smart Receipt Scanner",
+    title: "AI Receipt Scanner",
     description:
-      "Extract data automatically from receipts using advanced AI technology",
-  },
-  {
-    icon: <PieChart className="h-8 w-8 text-blue-600" />,
-    title: "Budget Planning",
-    description: "Create and manage budgets with intelligent recommendations",
+      "Snap and upload receipts to automatically extract and categorize expenses.",
   },
   {
     icon: <CreditCard className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Account Support",
-    description: "Manage multiple accounts and credit cards in one place",
-  },
-  {
-    icon: <Globe className="h-8 w-8 text-blue-600" />,
-    title: "Multi-Currency",
-    description: "Support for multiple currencies with real-time conversion",
+    title: "Multi-Account Tracking",
+    description:
+      "Track finances across multiple bank accounts and cards in one place.",
   },
   {
     icon: <Zap className="h-8 w-8 text-blue-600" />,
-    title: "Automated Insights",
-    description: "Get automated financial insights and recommendations",
+    title: "Smart Insights",
+    description:
+      "Receive real-time alerts and recommendations tailored to your spending behavior.",
+  },
+  {
+    icon: <FileText className="h-8 w-8 text-blue-600" />,
+    title: "Monthly Budget Reports",
+    description:
+      "Generate downloadable monthly reports to stay on track with your financial goals.",
+  },
+  {
+    icon: <ShieldCheck className="h-8 w-8 text-blue-600" />,
+    title: "Secure Authentication",
+    description:
+      "Protect your data with google login and modern authentication via Clerk.",
   },
 ];
 
@@ -88,23 +93,37 @@ export const howItWorksData = [
 // Testimonials Data
 export const testimonialsData = [
   {
-    name: "Sarah Johnson",
-    role: "Small Business Owner",
-    image: "https://randomuser.me/api/portraits/women/75.jpg",
+    name: "Pulkit Nandwana",
+    role: "Financial Advisor",
+    image: "https://randomuser.me/api/portraits/men/71.jpg",
     quote:
-      "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
+    "WealthWise is a game-changer. It gives me a clear picture of my burn rate and helps us plan budgets smartly every month.",
   },
   {
-    name: "Michael Chen",
+    name: "Affan Ahammed",
+    role: "Small Business Owner",
+    image: "https://randomuser.me/api/portraits/men/72.jpg",
+    quote:
+    "I love how easy it is to track transactions across my personal and business accounts. WealthWise just works—no fluff, just real insights.",
+  },
+  {
+    name: "Abhishek Kushwaha",
+    role: "Startup Founder",
+    image: "https://randomuser.me/api/portraits/men/73.jpg",
+    quote:
+    "Welth has transformed how I manage my business finances. The AI insights have helped me identify cost-saving opportunities I never knew existed.",
+  },
+  {
+    name: "Akshat Agarwal",
+    role: "Product Manager",
+    image: "https://randomuser.me/api/portraits/men/74.jpg",
+    quote:
+    "The receipt scanning feature saves me hours each month. Now I can focus on my work instead of manual data entry and expense tracking.",
+  },
+  {
+    name: "Daksh Khandelwal",
     role: "Freelancer",
     image: "https://randomuser.me/api/portraits/men/75.jpg",
-    quote:
-      "The receipt scanning feature saves me hours each month. Now I can focus on my work instead of manual data entry and expense tracking.",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "Financial Advisor",
-    image: "https://randomuser.me/api/portraits/women/74.jpg",
     quote:
       "I recommend Welth to all my clients. The multi-currency support and detailed analytics make it perfect for international investors.",
   },
