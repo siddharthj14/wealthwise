@@ -66,7 +66,7 @@ Create a `.env.local` file and add necessary credentials:
 
 ```env
 # Required to enable Clerk authentication
-NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=               
 CLERK_SECRET_KEY=
 
 # Custom auth routes
@@ -74,14 +74,27 @@ NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
 NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 
 # Database connection
-DATABASE_URL=             # Supabase pooling URL
-DIRECT_URL=               # For local Prisma migrations
+DATABASE_URL=             # Supabase pooling URL (Transaction Pooler URL at Connect at Supabase)
+DIRECT_URL=               # For local Prisma migration (Direct Connection URL at Supabase)
 
 # 3rd Party Services
 ARCJET_KEY=               # For bot protection and rate limiting
 RESEND_API_KEY=           # For email alerts & reports
-GEMINI_API_KEY=           # Google AI for receipt scanner
+GEMINI_API_KEY=           # Google AI for receipt scanner (The code uses Gemini-2.5-flash model)
 
+```
+
+# 3.1. After setting up DATABASE_URL in .env.local
+
+```
+# Pull the schema if Supabase already has tables
+npx prisma db pull
+
+# OR push your local schema to Supabase (⚠️ overwrites existing)
+npx prisma db push
+
+# For migrations (better for production)
+npx prisma migrate dev --name init
 ```
 
 ### 4. Run the Dev Server
